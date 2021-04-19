@@ -138,13 +138,6 @@ namespace DoublyLinkedList
 
         public INode<T> AddFirst(T value)
         {
-            // Node<T> temp = (Node<T>) First;
-            // Node<T> firstNode = new Node<T>(value, Head, temp);
-            // temp.Previous = firstNode;
-            // Head.Next = firstNode;
-            // Count++;
-            // return firstNode;
-
             return AddBetween(value, Head, (Node<T>) First);
         }
 
@@ -169,12 +162,19 @@ namespace DoublyLinkedList
 
         public void Clear()
         {
+            
+            Head.Next = Tail;
+            Tail.Previous = Head;
             Node<T> i = (Node<T>) First;
             while(!(i).Equals((Tail))){
+                Node<T> n = i.Next;
                 i.Previous = null;
-                i = i.Next;
-                Count--;
+                i.Next = null;
+                i = null;
+                i = n;
             }
+            Count = 0;
+            GC.Collect();
         }
 
         public void Remove(INode<T> node)
