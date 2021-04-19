@@ -1,0 +1,15 @@
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/src.deps.json
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/src.runtimeconfig.json
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/src.runtimeconfig.dev.json
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/src.dll
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/ref/src.dll
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/bin/Debug/net6.0/src.pdb
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.csprojAssemblyReference.cache
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.AssemblyInfoInputs.cache
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.AssemblyInfo.cs
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.csproj.CoreCompileInputs.cache
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.dll
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/ref/src.dll
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.pdb
+/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/Debug/net6.0/src.genruntimeconfig.cache
