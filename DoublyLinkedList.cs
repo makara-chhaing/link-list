@@ -132,50 +132,94 @@ namespace DoublyLinkedList
 
         public INode<T> Before(INode<T> node)
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            Node<T> temp = (Node<T>) node;
+            return temp.Previous;
         }
 
         public INode<T> AddFirst(T value)
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            // Node<T> temp = (Node<T>) First;
+            // Node<T> firstNode = new Node<T>(value, Head, temp);
+            // temp.Previous = firstNode;
+            // Head.Next = firstNode;
+            // Count++;
+            // return firstNode;
+
+            return AddBetween(value, Head, (Node<T>) First);
         }
 
         public INode<T> AddBefore(INode<T> before, T value)
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            if (((Node<T>) before).Previous.Equals(Head)){
+                return AddFirst(value);
+            }
+            if (((Node<T>) before).Equals((Node<T>)Last)){
+                return AddBetween(value, ((Node<T>) before).Previous, ((Node<T>) before));
+            }
+            return AddBetween(value, ((Node<T>) before).Previous, (Node<T>) before);
         }
 
         public INode<T> AddAfter(INode<T> after, T value)
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            if (((Node<T>) after).Equals((Node<T>) Last)){
+                return AddLast(value);
+            }
+            return AddBetween(value, ((Node<T>) after), ((Node<T>) after).Next);
         }
 
         public void Clear()
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            Node<T> i = (Node<T>) First;
+            while(!(i).Equals((Tail))){
+                i.Previous = null;
+                i = i.Next;
+                Count--;
+            }
         }
 
         public void Remove(INode<T> node)
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            Node<T> i = (Node<T>) First;
+            Node<T> temp;
+            while(!(i).Equals((Tail))){
+                if(i.Value.Equals(node.Value)){
+                    temp = i.Previous;
+                    i.Previous.Next = i.Next;
+                    i.Next.Previous = temp;
+                    Count--;
+                    return;
+                }
+                else{
+                    i = i.Next;
+                }
+            }
+            throw new InvalidOperationException();
         }
 
         public void RemoveFirst()
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            if(Count==0){
+                throw new InvalidOperationException();
+            }
+            Node<T> temp = (Node<T>) First;
+            Node<T> afterFirst = temp.Next;
+            Head.Next = afterFirst;
+            afterFirst.Previous = Head;
+            temp = afterFirst;
+            Count--;
         }
 
         public void RemoveLast()
         {
-            // You should replace this plug by your code.
-            throw new NotImplementedException();
+            if(Count==0){
+                throw new InvalidOperationException();
+            }
+            Node<T> temp = (Node<T>) Last;
+            Node<T> beforeLast = temp.Previous;
+            beforeLast.Next = Tail;
+            Tail.Previous = beforeLast;
+            temp = beforeLast;
+            Count--;
         }
 
     }

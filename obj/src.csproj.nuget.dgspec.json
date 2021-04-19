@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/src.csproj": {}
+    "C:\\Users\\Makara\\OneDrive\\Desktop\\SIT221\\task5.1\\link-list\\src.csproj": {}
   },
   "projects": {
-    "/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/src.csproj": {
+    "C:\\Users\\Makara\\OneDrive\\Desktop\\SIT221\\task5.1\\link-list\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/src.csproj",
+        "projectUniqueName": "C:\\Users\\Makara\\OneDrive\\Desktop\\SIT221\\task5.1\\link-list\\src.csproj",
         "projectName": "src",
-        "projectPath": "/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/src.csproj",
-        "packagesPath": "/Users/chanmakara/.nuget/packages/",
-        "outputPath": "/Users/chanmakara/Desktop/SIT221/Assessments/task5.1/src/obj/",
+        "projectPath": "C:\\Users\\Makara\\OneDrive\\Desktop\\SIT221\\task5.1\\link-list\\src.csproj",
+        "packagesPath": "C:\\Users\\Makara\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Makara\\OneDrive\\Desktop\\SIT221\\task5.1\\link-list\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/chanmakara/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Makara\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100-preview.2.21155.3/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.100-preview.3.21202.5\\RuntimeIdentifierGraph.json"
         }
       }
     }
