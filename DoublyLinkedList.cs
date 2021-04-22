@@ -138,11 +138,15 @@ namespace DoublyLinkedList
 
         public INode<T> AddFirst(T value)
         {
+            if(Count == 0) throw new InvalidOperationException();
             return AddBetween(value, Head, (Node<T>) First);
         }
 
         public INode<T> AddBefore(INode<T> before, T value)
         {
+            // just added.
+            if(Count == 0) throw new InvalidOperationException();
+
             if (((Node<T>) before).Previous.Equals(Head)){
                 return AddFirst(value);
             }
@@ -154,6 +158,7 @@ namespace DoublyLinkedList
 
         public INode<T> AddAfter(INode<T> after, T value)
         {
+            if(Count == 0) throw new InvalidOperationException();
             if (((Node<T>) after).Equals((Node<T>) Last)){
                 return AddLast(value);
             }
@@ -179,6 +184,9 @@ namespace DoublyLinkedList
 
         public void Remove(INode<T> node)
         {
+            // just added.
+            if((Node<T>) node == null) throw new ArgumentNullException();
+
             Node<T> i = (Node<T>) First;
             Node<T> temp;
             while(!(i).Equals((Tail))){
@@ -186,6 +194,9 @@ namespace DoublyLinkedList
                     temp = i.Previous;
                     i.Previous.Next = i.Next;
                     i.Next.Previous = temp;
+                    // (Node<T>)node.Next = null;
+                    // (Node<T>)node.Previous = null;
+                    // node = null;
                     Count--;
                     return;
                 }
