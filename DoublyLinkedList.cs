@@ -164,6 +164,7 @@ namespace DoublyLinkedList
         {
             if(after == null) throw new ArgumentNullException();
             if ((after as Node<T>).Previous == null || (after as Node<T>).Next==null) throw new InvalidOperationException();
+            
             if(Count == 0) throw new InvalidOperationException();
             if (((Node<T>) after).Equals((Node<T>) Last)){
                 return AddLast(value);
