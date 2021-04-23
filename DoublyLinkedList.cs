@@ -184,16 +184,30 @@ namespace DoublyLinkedList
 
         public void Remove(INode<T> node)
         {
+
             // just added.
-            if((Node<T>) node == null) throw new ArgumentNullException();
+            if(node == null) {
+                Console.ReadLine();
+                throw new ArgumentNullException();
+            }
 
             Node<T> i = (Node<T>) First;
             Node<T> temp;
             while(!(i).Equals((Tail))){
-                if(i.Value.Equals(node.Value)){
+                if(i.Equals(node)){
+                    // temp = i.Previous;
+                    // i.Previous.Next = i.Next;
+                    // i.Next.Previous = temp;
+
                     temp = i.Previous;
-                    i.Previous.Next = i.Next;
-                    i.Next.Previous = temp;
+                    temp.Next = i.Next;
+                    i.Previous = null;
+                    i.Next = null;
+                    i = null;
+                    // Console.WriteLine("node: "+node.Value);
+                    // Console.WriteLine("i: "+i.Value);
+                    // Console.ReadLine();
+
                     // (Node<T>)node.Next = null;
                     // (Node<T>)node.Previous = null;
                     // node = null;
@@ -202,9 +216,9 @@ namespace DoublyLinkedList
                 }
                 else{
                     i = i.Next;
+                    if(i.Equals(Tail)) throw new InvalidOperationException();
                 }
             }
-            throw new InvalidOperationException();
         }
 
         public void RemoveFirst()
