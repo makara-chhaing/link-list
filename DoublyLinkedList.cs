@@ -132,19 +132,23 @@ namespace DoublyLinkedList
 
         public INode<T> Before(INode<T> node)
         {
+            if (node == null) throw new ArgumentNullException();
             Node<T> temp = (Node<T>) node;
+            if (temp.Previous == null || temp.Next==null) throw new InvalidOperationException();
+            if (temp.Previous.Equals(Head)) return Head;
             return temp.Previous;
         }
 
         public INode<T> AddFirst(T value)
         {
-            if(Count == 0) throw new InvalidOperationException();
             return AddBetween(value, Head, (Node<T>) First);
         }
 
         public INode<T> AddBefore(INode<T> before, T value)
         {
             // just added.
+            if(before == null) throw new ArgumentNullException();
+            if ((before as Node<T>).Previous == null || (before as Node<T>).Next==null) throw new InvalidOperationException();
             if(Count == 0) throw new InvalidOperationException();
 
             if (((Node<T>) before).Previous.Equals(Head)){
@@ -158,6 +162,8 @@ namespace DoublyLinkedList
 
         public INode<T> AddAfter(INode<T> after, T value)
         {
+            if(after == null) throw new ArgumentNullException();
+            if ((after as Node<T>).Previous == null || (after as Node<T>).Next==null) throw new InvalidOperationException();
             if(Count == 0) throw new InvalidOperationException();
             if (((Node<T>) after).Equals((Node<T>) Last)){
                 return AddLast(value);
@@ -185,32 +191,21 @@ namespace DoublyLinkedList
         public void Remove(INode<T> node)
         {
 
-            // just added.
-            if(node == null) {
-                Console.ReadLine();
-                throw new ArgumentNullException();
+            if(node == null) throw new ArgumentNullException();
+            if(node.Equals(First)) {
+                Console.WriteLine("first b:" + First.Value); RemoveFirst(); Console.WriteLine("first a:" + First.Value); return;
             }
-
-            Node<T> i = (Node<T>) First;
+            if(node.Equals(Last)) {
+                Console.WriteLine("last b:" + Last.Value); RemoveLast(); Console.WriteLine("last a:" + Last.Value); return;
+            }
+            Node<T> i = (Node<T>)First;
             Node<T> temp;
             while(!(i).Equals((Tail))){
                 if(i.Equals(node)){
-                    // temp = i.Previous;
-                    // i.Previous.Next = i.Next;
-                    // i.Next.Previous = temp;
-
                     temp = i.Previous;
-                    temp.Next = i.Next;
-                    i.Previous = null;
-                    i.Next = null;
+                    i.Previous.Next = i.Next;
+                    i.Next.Previous = temp;
                     i = null;
-                    // Console.WriteLine("node: "+node.Value);
-                    // Console.WriteLine("i: "+i.Value);
-                    // Console.ReadLine();
-
-                    // (Node<T>)node.Next = null;
-                    // (Node<T>)node.Previous = null;
-                    // node = null;
                     Count--;
                     return;
                 }
