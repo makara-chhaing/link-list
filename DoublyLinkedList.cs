@@ -75,7 +75,7 @@ namespace DoublyLinkedList
 
         public INode<T> After(INode<T> node)
         {
-            if (node == null) throw new NullReferenceException();
+            if (node == null) throw new ArgumentException();
             Node<T> node_current = node as Node<T>;
             if (node_current.Previous == null || node_current.Next == null) throw new InvalidOperationException("The node referred as 'before' is no longer in the list");
             if (node_current.Next.Equals(Tail)) return null;
@@ -192,29 +192,22 @@ namespace DoublyLinkedList
         public void Remove(INode<T> node)
         {
 
+            
             if(node == null) throw new ArgumentNullException();
-            if(node.Equals(First)) {
-                Console.WriteLine("first b:" + First.Value); RemoveFirst(); Console.WriteLine("first a:" + First.Value); return;
-            }
-            if(node.Equals(Last)) {
-                Console.WriteLine("last b:" + Last.Value); RemoveLast(); Console.WriteLine("last a:" + Last.Value); return;
-            }
-            Node<T> i = (Node<T>)First;
-            Node<T> temp;
-            while(!(i).Equals((Tail))){
-                if(i.Equals(node)){
-                    temp = i.Previous;
-                    i.Previous.Next = i.Next;
-                    i.Next.Previous = temp;
-                    i = null;
-                    Count--;
-                    return;
-                }
-                else{
-                    i = i.Next;
-                    if(i.Equals(Tail)) throw new InvalidOperationException();
-                }
-            }
+            Node<T> node_current = node as Node<T>;
+            if (node_current.Previous == null || node_current.Next == null) throw new InvalidOperationException("The node referred is no longer in the list");
+            Node<T> before;
+            Node<T> after;
+            before = node_current.Previous;
+            after = node_current.Next;
+            
+            before.Next=after;
+            after.Previous=before;
+            
+            node_current.Previous = null;
+            node_current.Next = null;
+            node_current = null;
+            Count--;
         }
 
         public void RemoveFirst()
@@ -222,12 +215,7 @@ namespace DoublyLinkedList
             if(Count==0){
                 throw new InvalidOperationException();
             }
-            Node<T> temp = (Node<T>) First;
-            Node<T> afterFirst = temp.Next;
-            Head.Next = afterFirst;
-            afterFirst.Previous = Head;
-            temp = afterFirst;
-            Count--;
+            Remove(First);
         }
 
         public void RemoveLast()
@@ -235,12 +223,7 @@ namespace DoublyLinkedList
             if(Count==0){
                 throw new InvalidOperationException();
             }
-            Node<T> temp = (Node<T>) Last;
-            Node<T> beforeLast = temp.Previous;
-            beforeLast.Next = Tail;
-            Tail.Previous = beforeLast;
-            temp = beforeLast;
-            Count--;
+            Remove(Last);
         }
 
     }
